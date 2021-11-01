@@ -12,7 +12,7 @@ $totalAll = 0;
 
     </div>
     <form class="form_tb_cart" method="get">
-        <input type="hidden" name="component" value="bill">
+
         <table class="table table-hover mt-2 tb_cart">
             <thead>
                 <tr>
@@ -32,6 +32,7 @@ $totalAll = 0;
                         // while($_SESSION['giohang'][$_GET['id_sp']] = array()){
                         $totalAll += $total;
                 ?>
+                        <input type="hidden" name="component" value="bill">
                         <tr>
                             <th scope="row">
                                 <img class="admin_img_mota" src="./img/<?= $v['Image'] ?>" alt="product">
@@ -68,7 +69,7 @@ $totalAll = 0;
                     </td>
                     <td>
                         <button type="submit" class="btn btn-info">
-                            Mua hàng
+                            Thực hiện mua hàng
                         </button>
                     </td>
                 </tr>

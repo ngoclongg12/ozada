@@ -31,6 +31,9 @@
         $(".set_admin").click(function() {
             $(".option-logout-toggle-admin").slideToggle();
         });
+        $('.boxSearchPrd').hover(function(){
+            
+        })
         $('.slideBanner').slick({
             autoplay: true,
             autoplayspeed: 1000,
@@ -184,6 +187,12 @@
             })
 
         })
+        // for (let index = 0; index < 1; index++) {
+            
+            // $('.cart_success').ready(function(){
+                // location.reload();
+            // })
+        // }
 
         // 
         
@@ -196,5 +205,18 @@
     function product_del() {
         let conf = confirm('Bạn có chắc muốn xoá, thông tin sản phẩm sẽ không lấy lại được ?');
         return conf;
+    }
+    function change_shipping() {
+        let confchange = confirm('Chuyển trạng thái đang vận chuyển đơn hàng');
+        return confchange;
+        let shipping = $('#change_shipping :selected').val();
+        $(document).ready(function() {
+            $.ajax({
+                data: {
+                    status: shipping
+                },
+                url: './Admin_layout/Order/order_process.php',
+            }).done(res => {});
+        })
     }
 </Script>

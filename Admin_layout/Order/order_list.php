@@ -1,7 +1,7 @@
 <?php
 ob_start();
 
-$sql = "SELECT * FROM thongtin_kh_donhang ORDER BY id_tt_kh DESC";
+$sql = "SELECT * FROM danhsach_donhang ORDER BY id_dh DESC";
 $query = mysqli_query($connect, $sql);
 
 ?>
@@ -19,21 +19,26 @@ $query = mysqli_query($connect, $sql);
         </tr>
     </thead>
     <?php
-    while($row = mysqli_fetch_array($query)){
+    while ($row = mysqli_fetch_array($query)) {
     ?>
-    <tbody>
-        <tr>
-            <td>
-                <a href="./trangquantri.php?Admin=order_detail&id_dh=<?= $row['id_tt_kh'] ?>">Ozadavn00<?= $row['id_tt_kh'] ?></a>
-            </td>
-            <td><?= $row['created_at'] ?></td>
-            <td><?= $row['Name'] ?></td>
-            <td><?= $row['Address'] ?></td>
-            <td><?= $row['Phone'] ?></td>
-            <td><?= $row['Status'] ?></td>
-            <td><?= number_format($row['Bill']) ?>đ</td>
-        </tr>
-    </tbody>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="./trangquantri.php?Admin=order_detail&id_dh=<?= $row['id_dh'] ?>">Ozadavn00<?= $row['id_dh'] ?></a>
+                </td>
+                <td><?= $row['created_at'] ?></td>
+                <td><?= $row['Name'] ?></td>
+                <td style="overflow-x: hidden; max-width: 150px;"><?= $row['Address'] ?></td>
+                <td><?= $row['Phone'] ?></td>
+                <td>
+                    <select onchange="return change_shipping()" class="custom-select custom-select-sm" name="" id="change_shipping">
+                        <option disabled selected hidden><?= $row['Status'] ?></option>
+                        <option value="">Shipping</option>
+                    </select>
+                </td>
+                <td><?= number_format($row['Bill']) ?>đ</td>
+            </tr>
+        </tbody>
     <?php
     }
     ?>

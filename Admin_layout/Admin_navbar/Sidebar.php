@@ -8,7 +8,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        
+
         <div class="user-panel pb-3 mb-3 d-flex">
             <div class="image">
                 <!-- <h5>Trang Quản trị</h5> -->
@@ -58,14 +58,47 @@
 
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Đơn hàng
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-bag"></i>
+                        <p>
+                            Đơn hàng
+                            <i class="fas fa-angle-left right"></i>
+                            <span class="badge badge-danger right">6</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng đang xử lý</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng đang Ship</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng thành công</p>
+                            </a>
+                        </li>
+
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -73,7 +106,7 @@
                         <p>
                             Sản phẩm
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
+                            <!-- <span class="badge badge-info right">6</span> -->
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

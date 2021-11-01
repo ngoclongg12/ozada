@@ -65,7 +65,7 @@ $query1 = mysqli_query($connect, $sql1);
         <?php
         while ($row1 = mysqli_fetch_array($query1)) {
         ?>
-            <div class="col-md-4 boxSearchPrd">
+            <div class="col-md-4 boxSearchPrd boxSearchPrd<?= $row1['ID'] ?>">
                 <div>
                     <img class="imgSearch" src="./img/<?= $row1['Image'] ?>" alt="product">
                 </div>

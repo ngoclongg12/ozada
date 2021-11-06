@@ -30,7 +30,12 @@
                 if (isset($_SESSION['hoTen'])) {
                 ?>
                     <div class="accUser User">
-                        Hi, <?= $_SESSION['hoTen'] ?>
+                        Hello,
+                        <?php
+                        $ssHoTen = $_SESSION['hoTen'];
+                        $ten = explode(' ', $ssHoTen);
+                        echo $ten[count($ten)-1];
+                        ?>
                     </div>
                 <?php
                 } else {
@@ -51,7 +56,7 @@
                 </div>
                 <div class="opAccHide Hide">
                     <?php
-                    if (isset($_SESSION["quyen"]) && $_SESSION["quyen"] == "0" ) {
+                    if (isset($_SESSION["quyen"]) && $_SESSION["quyen"] == "0") {
                     ?>
                         <div>
                             <a href="<?= $config['hostname'] ?>admin/trangquantri.php">Trang quản trị</a>

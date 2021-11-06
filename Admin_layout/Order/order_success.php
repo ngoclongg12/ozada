@@ -1,7 +1,8 @@
 <?php
 ob_start();
-$stt = "Đang xử lý";
-$sql = "SELECT * FROM danhsach_donhang WHERE Status = '$stt' ORDER BY id_dh DESC";
+// include_once $_SERVER['DOCUMENT_ROOT'] . '/Ozada/connecting/connectDB.php';
+$stt = "Done";
+$sql = "SELECT * FROM danhsach_donhang WHERE Status = '$stt' ORDER BY updated_at";
 $query = mysqli_query($connect, $sql);
 
 ?>
@@ -31,10 +32,9 @@ $query = mysqli_query($connect, $sql);
                 <td style="overflow-x: hidden; max-width: 150px;"><?= $row['Address'] ?></td>
                 <td><?= $row['Phone'] ?></td>
                 <td>
-                    <select class="custom-select custom-select-sm cha_ship" name="">
-                        <option disabled selected hidden>Đang xử lý</option>
-                        <option value="<?= $row['id_dh'] ?>">Shipping</option>
-                    </select>
+                    <div class="btn btn-success">
+                    Đơn hàng thành công
+                    </div>
                 </td>
                 <td><?= number_format($row['Bill']) ?>đ</td>
             </tr>

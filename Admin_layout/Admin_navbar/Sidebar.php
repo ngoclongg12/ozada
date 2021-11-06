@@ -86,13 +86,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
+                            <a href="../admin/trangquantri.php?Admin=order_shipping" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Đơn hàng đang Ship</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../admin/trangquantri.php?Admin=order" class="nav-link">
+                            <a href="../admin/trangquantri.php?Admin=order_success" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Đơn hàng thành công</p>
                             </a>
@@ -102,7 +102,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-chart-pie"></i>
+
                         <p>
                             Sản phẩm
                             <i class="fas fa-angle-left right"></i>
@@ -128,7 +129,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+
+                        <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Danh mục
                             <i class="right fas fa-angle-left"></i>
@@ -151,60 +153,34 @@
 
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+
+                        <i class="nav-icon fas fa-clipboard"></i>
                         <p>
-                            UI Elements
-                            <i class="fas fa-angle-left right"></i>
+                            Banner
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="../admin/trangquantri.php?Admin=banner" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>General</p>
+                                <p>Thêm Banner mới</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../admin/trangquantri.php?Admin=banner_show" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Demo banner</p>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Forms
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>General Elements</p>
-                            </a>
-                        </li>
 
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Tables
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Simple Tables</p>
-                            </a>
-                        </li>
 
-                    </ul>
-                </li> -->
 
 
             </ul>

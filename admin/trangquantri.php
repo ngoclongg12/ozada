@@ -14,50 +14,68 @@ if ($_SESSION["quyen"] == 1) {
 
 $content = "";
 // echo $content;
-if(isset($_GET['Admin'])){
+if (isset($_GET['Admin'])) {
     switch ($_GET['Admin']) {
-    
+
         case "manage_main":
             include_once '../Admin_layout/manage_main.php';
+            break;
+
+        case "banner":
+            include_once '../Admin_layout/Banner/change_banner.php';
+            break;
+
+        case "banner_show":
+            include_once '../Admin_layout/Banner/Banner_show.php';
             break;
 
         case "order":
             include_once '../Admin_layout/Order/order_list.php';
             break;
 
+        case "order_shipping":
+            include_once '../Admin_layout/Order/order_shipping.php';
+            break;
+
+        case "order_success":
+            include_once '../Admin_layout/Order/order_success.php';
+            break;
+
         case "order_detail":
             include_once '../Admin_layout/Order/order_detail.php';
             break;
-    
+
         case "product_add":
             include_once "../Admin_layout/Product/product_add.php";
             break;
-    
+
         case "product_show":
             include_once "../Admin_layout/Product/product_show.php";
             break;
-    
+
         case "product_fix":
             include_once "../Admin_layout/Product/product_fix.php";
             break;
-    
+
         case "category_show":
             include_once "../Admin_layout/Category/category_show.php";
             break;
-    
+
         case "category_add":
             include_once "../Admin_layout/Category/category_add.php";
             break;
-    
+
         case "category_fix":
             include_once "../Admin_layout/Category/category_fix.php";
             break;
-    
+
+
+
             // case "product_del":
             //     include_once "../Admin_layout/Product/product_del.php";
             //     break;
     }
-}else{
+} else {
     include_once '../Admin_layout/manage_main.php';
 }
 

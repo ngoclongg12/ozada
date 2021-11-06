@@ -370,7 +370,8 @@ a:hover {
 }
 
 .imgBanner {
-  max-height: 420px;
+  height: 420px;
+  width: 645px;
   object-fit: cover;
 }
 
@@ -572,6 +573,13 @@ a:hover {
 
 }
 
+.backend_showBanner{
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 /* cart-success */
 .h4-success {
   display: block;
@@ -588,6 +596,12 @@ a:hover {
 
 .img_success {
   max-width: 250px;
+}
+
+.rq_swipe_r{
+  color: rgb(19, 132, 150);
+  font-weight: bold;
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {
@@ -666,7 +680,8 @@ a:hover {
   }
 
   .imgBanner {
-    max-height: 375px;
+    height: 375px;
+    width: 597px;
   }
 
   .onTop::before {
@@ -698,7 +713,8 @@ a:hover {
   }
 
   .imgBanner {
-    max-height: 350px;
+    height: 350px;
+    width: 436px;
   }
 }
 
@@ -748,6 +764,7 @@ a:hover {
 
   .logoHeader {
     max-width: 100%;
+    height: auto;
   }
 
   .boxPrd {
@@ -768,7 +785,8 @@ a:hover {
   }
 
   .imgBanner {
-    max-height: 165px;
+    height: 165px;
+    width: 316px;
   }
 
   .content_success {
@@ -783,6 +801,10 @@ a:hover {
     width: 510px;
     overflow-x: scroll;
   }
+
+  /* .rq_swipe_r{
+    display: block;
+  } */
 }
 
 @media screen and (max-width: 414px) {
@@ -793,11 +815,21 @@ a:hover {
   .form_tb_cart {
     width: 350px;
   }
+
+  .imgBanner {
+    height: 165px;
+    width: 232px;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .form_tb_cart {
     width: 315px;
+  }
+
+  .imgBanner {
+    height: 165px;
+    width: 206px;
   }
 }
 
@@ -811,6 +843,10 @@ a:hover {
   .tb_cart {
     width: fit-content;
   }
+  .imgBanner {
+    height: 165px;
+    width: 170px;
+  }
 }
 
 @media screen and (max-width: 285px) {
@@ -819,7 +855,8 @@ a:hover {
   }
 
   .imgBanner {
-    max-height: 105px;
+    height: 105px;
+    width: 143px;
   }
 
   .iconPrd {

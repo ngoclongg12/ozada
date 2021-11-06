@@ -2,78 +2,95 @@
 // session_start();
 $total = 0;
 $totalAll = 0;
+$hoTen = null;
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Ozada/connecting/connectDB.php';
 
+if(isset($_SESSION['hoTen'])){
+    $hoTen = $_SESSION['hoTen'];
+    $sql = "SELECT * FROM danhsach_kh WHERE fullname = '$hoTen'";
+    $query = mysqli_query($connect, $sql);
+    $row = mysqli_fetch_array($query);
+}
 
 ?>
 <div class="container mt-4">
     <div class="row" style="background-color: rgb(170, 224, 248);">
         <h4 class="text-aligncenter" style="line-height: 40px; padding-left: 15px">XÁC NHẬN ĐƠN HÀNG</h4>
     </div>
-    <table class="table table-striped mt-2">
-        <thead>
-            <tr>
-                <th scope="col">Sản phẩm</th>
-                <th scope="col">Giá thành</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Thành tiền</th>
-                <!-- <th scope="col"></th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+    <div class="form_tb_cart">
 
-                foreach ($_SESSION['giohang'] as $k => $v) {
-                    $total = $v['Count'] * $v['Price'];
-                    $totalAll += $total;
-            ?>
-                    <tr>
-                        <td scope="row">
-                            <img class="admin_img_mota" src="./img/<?= $v['Image'] ?>" alt="product">
-                            <div class="namePrd"><?= $v['Name'] ?></div>
-                        </td>
-                        <td><?= number_format($v['Price']) ?>đ</td>
-                        <td data-th="Quantity">
-                            <?= $v['Count'] ?>
-                        </td>
-                        <td><span class="ketqua"><?= number_format($total) ?>đ</span></td>
-                    </tr>
-            <?php
+        <table class="table table-striped mt-2 tb_cart">
+            <thead>
+                <tr>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Giá thành</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Thành tiền</th>
+                    <!-- <th scope="col"></th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+    
+                    foreach ($_SESSION['giohang'] as $k => $v) {
+                        $total = $v['Count'] * $v['Price'];
+                        $totalAll += $total;
+                ?>
+                        <tr>
+                            <td scope="row">
+                                <img class="admin_img_mota" src="./img/<?= $v['Image'] ?>" alt="product">
+                                <div class="namePrd"><?= $v['Name'] ?></div>
+                            </td>
+                            <td><?= number_format($v['Price']) ?>đ</td>
+                            <td data-th="Quantity">
+                                <?= $v['Count'] ?>
+                            </td>
+                            <td><span class="ketqua"><?= number_format($total) ?>đ</span></td>
+                        </tr>
+                <?php
+                    }
+                } else {
+                    echo '<center class="alert alert-danger mt-2">BẠN CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG</center>';
                 }
-            } else {
-                echo '<center class="alert alert-danger mt-2">BẠN CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG</center>';
-            }
-            ?>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <b class="price">
-                        Tổng tiền: <?= number_format($totalAll) ?>đ
-                    </b>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <b class="price">
+                            Tổng tiền: <?= number_format($totalAll) ?>đ
+                        </b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <form class="infoKH" action="" method="post">
         <div class="row">
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="">Tên khách hàng:</label>
-                    <input id="nameBill" class="form-control" name="Name" type="text" required>
+                    <input id="nameBill" class="form-control" name="Name" type="text" required
+                    value="<?php if(isset($_SESSION['hoTen'])){ echo $row['fullname'];} ?>"
+                    >
                 </div>
                 <p class="alert alert-danger errNameBill" style="display: none;"></p>
 
                 <div class="form-group">
                     <label for="">Số điện thoại:</label>
-                    <input id="phoneBill" class="form-control" name="Phone" type="text" maxlength="11" required>
+                    <input id="phoneBill" class="form-control" name="Phone" type="text" maxlength="11" required
+                    value="<?php if(isset($_SESSION['hoTen'])){ echo $row['phone'];} ?>"
+                    >
                 </div>
                 <p class="alert alert-danger errPhoneBill" style="display: none;"></p>
 
                 <div class="form-group">
                     <label for="">Địa chỉ:</label>
-                    <input id="addressBill" class="form-control" name="Address" type="text" required>
+                    <input id="addressBill" class="form-control" name="Address" type="text" required
+                    value="<?php if(isset($_SESSION['hoTen'])){ echo $row['address'];} ?>"
+                    >
                 </div>
                 <p class="alert alert-danger errAddressBill" style="display: none;"></p>
 
@@ -121,20 +138,11 @@ $totalAll = 0;
                         <div>
                             Hình thức thanh toán: <span id="modalPay"></span>
                         </div>
-
                     </div>
                     <div class="modal-footer">
-                        <!-- <button type="button" name="modalSubmit" class="btn btn-info js_submit"> xác nhận -->
-                            <a class="btn btn-info js_submit" href="./index.php?component=cart_success">Xác nhận</a>
-                        <!-- </button> -->
+                        <button type="button" name="modalSubmit" class="btn btn-info js_submit"> xác nhận</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                     </div>
-                    <?php
-                    // if (isset($_POST['modalSubmit'])) {
-                    //     $_SESSION['modalSubmit'] == $_POST['modalSubmit'];
-                    //     header('location: ');
-                    // }
-                    ?>
                 </form>
             </div>
         </div>

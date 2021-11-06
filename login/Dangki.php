@@ -3,9 +3,10 @@ include_once "../connecting/connectDB.php";
 if (isset($_POST["submit"])) {
     $alert = "";
 
-    if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["address"]) && isset($_POST["birthday"]) && isset($_POST["sex"])) {
+    if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["sdt"]) && isset($_POST["address"]) && isset($_POST["birthday"]) && isset($_POST["sex"])) {
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $sdt = $_POST["sdt"];
         $fullname = $_POST["fullname"];
         $address = $_POST["address"];
         $birthday = $_POST["birthday"];
@@ -17,8 +18,8 @@ if (isset($_POST["submit"])) {
                 $alert = '<center class="btn btn-danger">Tài khoản đã tồn tại !</center>';
             } else {
                 $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-                $update = "INSERT INTO danhsach_kh (username, password, role, address, fullname, birthday, sex) 
-                VALUES ('$username', '$pw_hash', '1', '$address', '$fullname', '$birthday', '$sex')";
+                $update = "INSERT INTO danhsach_kh (username, password, role, phone, address, fullname, birthday, sex) 
+                VALUES ('$username', '$pw_hash', '1', '$sdt', '$address', '$fullname', '$birthday', '$sex')";
                 $query = mysqli_query($connect, $update);
                 header('location: ../login/Dangnhap.php');
             }
@@ -76,6 +77,11 @@ if (isset($_POST["submit"])) {
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <input name="password" type="password" id="password" placeholder="Mật khẩu" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input name="sdt" type="text" id="sdt" placeholder="Số điện thoại" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">

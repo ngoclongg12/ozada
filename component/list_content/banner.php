@@ -69,16 +69,19 @@
             </div>
             <div class="col-8">
                 <div class="slideBanner">
-                    <div>
-                        <img class="imgBanner" src="./img/slideBanner1.jpg" alt="banner">
-                    </div>
-                    <div>
-                        <img class="imgBanner" src="./img/slideBanner2.jpg" alt="banner">
-                    </div>
-                    <div>
-                        <img class="imgBanner" src="./img/slideBanner3.jpg" alt="banner">
-                    </div>
-                    
+                    <?php
+                    include_once $_SERVER['DOCUMENT_ROOT'] . '/Ozada/connecting/connectDB.php';
+
+                    $sql_get = "SELECT * FROM danhsach_banner ORDER BY created_at DESC LIMIT 3";
+                    $query_get = mysqli_query($connect, $sql_get);
+                    while ($row = mysqli_fetch_array($query_get)) {
+                    ?>
+                        <div>
+                            <img class="imgBanner" src="./img/<?= $row['file_upload'] ?>" alt="banner">
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="col-2">

@@ -59,9 +59,15 @@ $totalAll = 0;
                 ?>
                 <tr>
                     <th>
+                        <div class="animate__animated animate__fadeInRight rq_swipe_r mb-2">
+                            <i class="fas fa-angle-double-left"></i>
+                            Trượt sang phải
+                        </div>
                         <a class="btn btn-info" href="./index.php">Chọn thêm sản phẩm</a>
                     </th>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                     <td></td>
                     <td><b class="price">
                             Tổng tiền: <?= number_format($totalAll) ?>đ

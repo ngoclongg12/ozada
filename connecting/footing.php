@@ -160,7 +160,7 @@
             $.get('./component/list_content/cart/cart_getinfo.php',
             {Name: newnameBill, Phone: newphoneBill, Address: newaddressBill},
             function(data){
-                console.log(data);
+                window.location.replace("<?= $config['hostname'] ?>index.php?component=cart_success");
             })
             
         })
@@ -187,15 +187,49 @@
             })
 
         })
-        // for (let index = 0; index < 1; index++) {
-            
-            // $('.cart_success').ready(function(){
-                // location.reload();
-            // })
-        // }
 
-        // 
+        // Change status-Order
+        $('.cha_ship').change(function(){
+            confirm('Chuyển trạng thái đang vận chuyển đơn hàng')
+            let id_dh = $(this).find(":selected").val();
+            
+            $.ajax({
+                data: {
+                    val_id_dh: id_dh
+                },
+                url: '../Admin_layout/Order/order_processList.php',
+                method: 'get',
+            }).done(res => {
+                console.log(res);
+                window.location.replace("<?= $config['hostname'] ?>admin/trangquantri.php?Admin=order_shipping");
+            }).fail(err => {
+                console.log(err);
+            });
+        })
+        $('.cha_done').change(function(){
+            confirm('Chuyển trạng thái đơn hàng thành công')
+            let done_id = $(this).find(":selected").val();
+            
+            $.ajax({
+                data: {
+                    done_id_dh: done_id
+                },
+                url: '../Admin_layout/Order/order_processShip.php',
+                method: 'get',
+            }).done(res => {
+                console.log(res);
+                window.location.replace("<?= $config['hostname'] ?>admin/trangquantri.php?Admin=order_success");
+            }).fail(err => {
+                console.log(err);
+            });
+        })
         
+        // scroll animate
+        if($(window).width() <= 540){
+            $(document).scroll(function(){
+                $('.rq_swipe_r').css('display','block').fadeOut(1500);
+            })
+        }
     });
 
     function prd_cart_del() {
@@ -206,17 +240,5 @@
         let conf = confirm('Bạn có chắc muốn xoá, thông tin sản phẩm sẽ không lấy lại được ?');
         return conf;
     }
-    function change_shipping() {
-        let confchange = confirm('Chuyển trạng thái đang vận chuyển đơn hàng');
-        return confchange;
-        let shipping = $('#change_shipping :selected').val();
-        $(document).ready(function() {
-            $.ajax({
-                data: {
-                    status: shipping
-                },
-                url: './Admin_layout/Order/order_process.php',
-            }).done(res => {});
-        })
-    }
+    
 </Script>
